@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORM 13 - Oocyte Donor Consent</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 11px; /* Slightly increased font size for better readability */
+      margin: 0;
+      background-color: #fff;
+    }
+
+    .form-container {
+      max-width: 700px; /* Adjusted for better fit on A4 with letterhead */
+      margin: 0 auto;
+      padding: 180px 50px 40px 50px; /* Increased side padding to account for letterhead */
+    }
+
+    h1, h2 {
+      font-size: 14px; /* Increased heading font size */
+      text-align: center;
+      margin: 6px 0; /* Adjusted margin */
+    }
+
+    .form-group {
+      margin-bottom: 10px; /* Increased margin for better spacing */
+      line-height: 1.5; /* Increased line height for readability */
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      border: none;
+      border-bottom: 1px dotted #333;
+      font-size: 11px; /* Consistent font size */
+      background: transparent;
+      width: 100%;
+      box-sizing: border-box; /* Include padding and border in the element's total width */
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 30px; /* Minimum height for text areas */
+    }
+
+    .print-button-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .print-button {
+      font-size: 13px;
+      padding: 8px 16px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .print-button:hover {
+      background-color: #0056b3;
+    }
+
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        background-color: #fff; /* Ensure no background color interferes */
+      }
+
+      .form-container {
+        max-width: 700px;
+        padding: 180px 50px 40px 50px;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      /* Apply background image to each page */
+      .form-container::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('genes_letterhead.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top center;
+        z-index: -1; /* Place behind content */
+      }
+
+      /* Break page for the second part of the form */
+      .page-break {
+        page-break-before: always;
+        position: relative; /* Ensure the pseudo-element for background is applied here too */
+      }
+
+      .page-break::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('genes_letterhead.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top center;
+        z-index: -1; /* Place behind content */
+      }
+
+      /* Adjust padding for the second page if needed, to maintain alignment with letterhead */
+      .page-break .form-group:first-of-type {
+        padding-top: 180px; /* Simulate top padding for the content on the second page */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h1>FORM 13</h1>
+    <h2>[See rule 13 (f) (viii)]</h2>
+    <h2>Consent Form for the Donor of Oocytes</h2>
+
+    <div class="form-group">
+      I, Ms. <input type="text" placeholder="Full Name">, Address <input type="text" placeholder="Donor's Address">, Mobile number <input type="text" placeholder="Mobile Number">, AADHAR card number <input type="text" placeholder="AADHAR Number">,
+      Willingly consent to donate my oocyte to couple/individual who are unable to have a child by other means. At this stage and to the best of my knowledge I am free of any infectious diseases or genetic disorders.
+    </div>
+
+    <div class="form-group">
+      I have had a full discussion with Dr. <input type="text" placeholder="Clinician's Name and Address"> (name and address of the clinician) on <input type="date">
+    </div>
+
+    <div class="form-group">
+      I have been counselled by <input type="text" placeholder="Counsellor's Name and Address"> (name and address of independent counsellor) on <input type="date">
+    </div>
+
+    <div class="form-group">
+      (I understand that there will be no direct or indirect contact between me and the recipient, and my personal identity will not be disclosed to the recipient or to the child born through the use of my gamete.: If applicable)
+    </div>
+
+    <div class="form-group">
+      I understand that I shall have no rights whatsoever on the resulting offspring and vice versa.
+    </div>
+
+    <div class="form-group">
+      I understand that the method of treatment may include:
+      <ol>
+        <li>Stimulating my ovaries for multifollicular development.</li>
+        <li>The recovery of one or more of my eggs under ultrasound-guidance or by laparoscopy under sedation or general anesthesia.</li>
+        <li>The fertilization of my oocytes with recipient’s husband’s or donor sperm and transferring the resulting embryo into the recipient.</li>
+      </ol>
+    </div>
+
+    <div class="form-group">
+      I understand and accept that the drugs that are used to stimulate the ovaries to raise oocytes have temporary side-effects like nausea, headaches and abdominal bloating. Only in a small proportion of cases, a condition called ovarian hyperstimulation occurs where there is an exaggerated ovarian response. Such cases can be identified ahead of time but only to a limited extent. Further, at times the ovarian response is poor or absent in spite of using a high dose of drugs. Under these circumstances, the treatment cycle will be cancelled.
+    </div>
+
+    <div class="form-group">
+      Name, address and signature of woman: <br>
+      <textarea rows="3" placeholder="Donor's Name, Address, and Signature"></textarea>
+    </div>
+
+    <div class="page-break">
+        <h2>Endorsement by the ART clinic</h2>
+        <div class="form-group">
+            I / we have personally explained to <input type="text" placeholder="Donor's Name"> the details and implications of her signing this consent / approval form, and made sure to the extent humanly possible that she understands these details and implications.
+        </div>
+
+        <div class="form-group">
+            Name, address and signature of the Witness from the clinic: <br>
+            <textarea rows="3" placeholder="Witness Name, Address, and Signature"></textarea>
+        </div>
+        <div class="form-group">
+            Name and signature of the Doctor: <br>
+            <textarea rows="3" placeholder="Doctor's Name and Signature"></textarea>
+        </div>
+        <div class="form-group">
+            Name and address of the ART clinic: <br>
+            <textarea rows="3" placeholder="ART Clinic Name and Address"></textarea>
+        </div>
+        <div class="form-group">
+            Name and address of the ART Bank that recruited and screened the donor: <br>
+            <textarea rows="3" placeholder="ART Bank Name and Address"></textarea>
+        </div>
+        <div class="form-group">
+            Date: <input type="date">
+        </div>
+
+        <div class="form-group">
+            <em>(This form will be filled by the ART clinic but a copy of the same has to be maintained by the ART bank in case the donor was recruited and screened by the bank)</em>
+        </div>
+    </div> </div>
+
+  <div class="print-button-container no-print">
+    <button class="print-button" onclick="window.print()">🖨 Print Form 13</button>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GENES India | Oocyte Donor Entry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Base Reset */
+    body, h1, h2, p, form, div, label, input, select, button {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f0f4f8, #e0e6ee); /* Lighter, softer background */
+      color: #334e68; /* Darker text for better contrast */
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    /* Header/Title */
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      color: #0d47a1; /* Deep blue from main theme */
+      font-weight: 700;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Form Container */
+    form {
+      background: white;
+      border-radius: 15px; /* More rounded corners */
+      padding: 30px 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Softer, larger shadow */
+      width: 100%;
+      max-width: 700px; /* Max width for readability */
+      border: 1px solid #e0e0e0; /* Subtle border */
+    }
+
+    /* Form Group */
+    .form-group {
+      margin-bottom: 20px; /* More spacing between form groups */
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600; /* Slightly bolder labels */
+      margin-bottom: 8px; /* More space between label and input */
+      color: #334e68; /* Consistent text color */
+      font-size: 1em;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="date"],
+    select {
+      padding: 12px 15px; /* More padding for better touch targets */
+      font-size: 1em; /* Consistent font size */
+      border: 1px solid #c9d6e7; /* Softer border color */
+      border-radius: 8px; /* Rounded input fields */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: #fcfdff; /* Slightly off-white background */
+      color: #334e68;
+    }
+
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    input[type="number"]:focus,
+    input[type="date"]:focus,
+    select:focus {
+      border-color: #1976d2; /* Blue border on focus */
+      box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2); /* Subtle blue glow on focus */
+      outline: none; /* Remove default outline */
+    }
+
+    select {
+      /* Appearance for cross-browser consistency */
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23334e68%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-6.4H18.6c-5%200-9.3%201.8-13.2%205.6-3.9%203.8-5.8%208.5-5.8%2014.1s1.8%2010.3%205.8%2014.1l128.8%20127.9c3.9%203.9%208.7%205.9%2013.6%205.9s9.7-2%2013.6-5.9l128.8-127.9c3.8-3.8%205.7-8.5%205.7-14s-1.9-10.3-5.7-14.1z%22%2F%3E%3C%2Fsvg%3E');
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 12px;
+      padding-right: 35px; /* Make space for the custom arrow */
+    }
+
+
+    /* Submit Button */
+    button[type="submit"] {
+      display: block;
+      width: fit-content;
+      margin: 30px auto 0; /* Centered, more space below */
+      padding: 14px 30px; /* Larger padding */
+      font-size: 1.1em; /* Larger font size */
+      background-color: #0d47a1; /* Deep blue from theme */
+      color: white;
+      border: none;
+      border-radius: 8px; /* Rounded button */
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    button[type="submit"]:hover {
+      background-color: #1976d2; /* Lighter blue on hover */
+      transform: translateY(-2px); /* Slight lift on hover */
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      form {
+        padding: 25px 25px;
+      }
+
+      input[type="text"],
+      input[type="tel"],
+      input[type="number"],
+      input[type="date"],
+      select {
+        padding: 10px 12px;
+      }
+
+      button[type="submit"] {
+        padding: 12px 25px;
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.7em;
+      }
+      form {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+  <script src="../../auth.js"></script>
+</head>
+<body>
+  <h1>Oocyte Donor Entry Form</h1>
+
+  <form id="oocyteDonorForm">
+    <div class="form-group">
+      <label for="donor_code">Donor Code <span style="color: red;">*</span></label>
+      <input type="text" id="donor_code" name="donor_code" required>
+    </div>
+
+    <div class="form-group">
+      <label for="registration_code">Registration Code</label>
+      <input type="text" id="registration_code" name="registration_code">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Donor Name <span style="color: red;">*</span></label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="husbands_name">Husband's Name</label>
+      <input type="text" id="husbands_name" name="husbands_name">
+    </div>
+
+    <div class="form-group">
+      <label for="aadhaar">Aadhaar</label>
+      <input type="text" id="aadhaar" name="aadhaar" pattern="[0-9]{12}" title="Aadhaar number must be 12 digits">
+    </div>
+
+    <div class="form-group">
+      <label for="mobile">Mobile</label>
+      <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" title="Mobile number must be 10 digits">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address">
+    </div>
+
+    <div class="form-group">
+      <label for="marital_status">Marital Status</label>
+      <select id="marital_status" name="marital_status">
+        <option value="">Select</option>
+        <option value="Single">Single</option>
+        <option value="Married">Married</option>
+        <option value="Divorced">Divorced</option>
+        <option value="Widowed">Widowed</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="18" max="45" title="Age must be between 18 and 45">
+    </div>
+
+    <div class="form-group">
+      <label for="visit_1_date">Visit 1 Date</label>
+      <input type="date" id="visit_1_date" name="visit_1_date">
+    </div>
+
+    <div class="form-group">
+      <label for="investigations">Investigations</label>
+      <input type="text" id="investigations" name="investigations">
+    </div>
+
+    <div class="form-group">
+      <label for="declaration">Declaration</label>
+      <input type="text" id="declaration" name="declaration">
+    </div>
+
+    <div class="form-group">
+      <label for="file_status">File Status</label>
+      <input type="text" id="file_status" name="file_status">
+    </div>
+
+    <div class="form-group">
+      <label for="ovum_pickup_date">Ovum Pickup Date</label>
+      <input type="date" id="ovum_pickup_date" name="ovum_pickup_date">
+    </div>
+
+    <div class="form-group">
+      <label for="doctor_name">Doctor's Name</label>
+      <input type="text" id="doctor_name" name="doctor_name">
+    </div>
+
+    <div class="form-group">
+      <label for="hospital_name">Hospital Name</label>
+      <input type="text" id="hospital_name" name="hospital_name">
+    </div>
+
+    <div class="form-group">
+      <label for="couple_name">Couple Name</label>
+      <input type="text" id="couple_name" name="couple_name">
+    </div>
+
+    <div class="form-group">
+      <label for="document_status">Document Status</label>
+      <input type="text" id="document_status" name="document_status">
+    </div>
+
+    <div class="form-group">
+      <label for="habit_gutka">Gutka Consumption?</label>
+      <select id="habit_gutka" name="habit_gutka">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="habit_smoking">Smoking?</label>
+      <select id="habit_smoking" name="habit_smoking">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="habit_liquor">Liquor Consumption?</label>
+      <select id="habit_liquor" name="habit_liquor">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="height">Height (e.g., 5'4" or 165 cm)</label>
+      <input type="text" id="height" name="height">
+    </div>
+
+    <div class="form-group">
+      <label for="weight">Weight (in kg)</label>
+      <input type="number" id="weight" name="weight" min="1">
+    </div>
+
+    <div class="form-group">
+      <label for="blood_group">Blood Group</label>
+      <input type="text" id="blood_group" name="blood_group">
+    </div>
+
+    <div class="form-group">
+      <label for="hair_color">Hair Color</label>
+      <input type="text" id="hair_color" name="hair_color">
+    </div>
+
+    <div class="form-group">
+      <label for="eye_color">Eye Color</label>
+      <input type="text" id="eye_color" name="eye_color">
+    </div>
+
+    <div class="form-group">
+      <label for="education">Education</label>
+      <input type="text" id="education" name="education">
+    </div>
+
+    <div class="form-group">
+      <label for="no_of_children">Number of Children</label>
+      <input type="number" id="no_of_children" name="no_of_children" min="0">
+    </div>
+
+    <div class="form-group">
+      <label for="profession">Profession</label>
+      <input type="text" id="profession" name="profession">
+    </div>
+
+    <button type="submit">Submit Oocyte Donor Data</button>
+  </form>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    // Replace with your actual Supabase URL and Key
+    const supabaseUrl = 'https://mtzrqriuplctlnpcmnlp.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im10enJxcml1cGxjdGxucGNtbmxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0MzkyODAsImV4cCI6MjA2NzAxNTI4MH0.wEMz-7QI54NnEa74f0uvJD8oWjH-EhokqePAXbkBO5M'; 
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    const form = document.getElementById('oocyteDonorForm');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Convert boolean strings to actual booleans
+      data.habit_gutka = data.habit_gutka === 'true';
+      data.habit_smoking = data.habit_smoking === 'true';
+      data.habit_liquor = data.habit_liquor === 'true';
+
+      // Convert numbers
+      if (data.no_of_children) data.no_of_children = Number(data.no_of_children);
+      if (data.age) data.age = Number(data.age);
+      if (data.weight) data.weight = Number(data.weight);
+
+
+      // Basic validation for required fields
+      if (!data.donor_code || !data.name) {
+          alert('Please fill in all required fields (marked with *)');
+          return;
+      }
+
+      const { error } = await supabase.from('oocyte_donors').insert([data]);
+
+      if (error) {
+        console.error('Error saving data:', error);
+        alert('Error saving data: ' + error.message);
+      } else {
+        alert('Oocyte Donor data saved successfully!');
+        form.reset(); // Clear the form after successful submission
+      }
+    });
+  </script>
+</body>
+</html>

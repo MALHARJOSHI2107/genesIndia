@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM 24 A - Information on Semen Donor (Part 2)</title>
+    <style>
+        /* General Body & Font Styles */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff; /* Fallback color */
+        }
+
+        .form-container {
+            padding: 20px 40px;
+        }
+
+        /* --- HEADING STYLES --- */
+        h2 {
+            font-size: 13px;
+            margin: 12px 0 6px 0;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* --- FORM ELEMENT STYLES (Ultra-Compact) --- */
+        .section {
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 3px; /* Minimal margin */
+            font-size: 11px;  /* Smaller font for fitting */
+            line-height: 1.3;  /* Tighter line spacing */
+        }
+
+        .form-group label {
+            width: 320px;
+            min-width: 320px;
+            margin-right: 10px;
+            font-weight: normal;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="number"],
+        .form-group select {
+            flex: 1;
+            padding: 1px 3px;
+            border: none;
+            border-bottom: 1px dotted #555;
+            font-size: 11px;
+            background-color: transparent;
+        }
+        
+        .sub-item {
+            margin-left: 20px;
+        }
+        
+        .sub-item label {
+            width: 300px;
+            min-width: 300px;
+        }
+        
+        /* Specific adjustment for the complex HIV field */
+        #hiv1-container {
+            display: flex;
+            flex: 1;
+            align-items: baseline;
+        }
+        #hiv1-container select {
+            width: 90px;
+            flex: none;
+        }
+        #hiv1-container span {
+            margin: 0 5px 0 10px;
+        }
+
+        /* --- FOOTNOTES AND SIGNATURE --- */
+        .footnotes {
+            font-size: 10px;
+            font-style: italic;
+            margin-top: 15px;
+        }
+        .footnotes p {
+            margin: 2px 0;
+        }
+        .signature-section {
+            margin-top: 20px;
+            font-size: 11px;
+        }
+        .signature-section p {
+            margin-bottom: 2px;
+        }
+        .signature-line {
+            border-top: 1px solid #333;
+            margin-top: 25px;
+            width: 350px;
+        }
+        .signature-details {
+            display: flex;
+            justify-content: space-between;
+            width: 350px;
+            margin-top: 3px;
+        }
+        .signature-details input[type="date"]{
+            border: none;
+            border-bottom: 1px solid #333;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+        }
+
+        /* --- STYLES FOR THE PRINT BUTTON (SCREEN ONLY) --- */
+        .print-button-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .print-button {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: all 0.2s ease-in-out;
+        }
+        .print-button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* --- PRINT-SPECIFIC STYLES --- */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-image: url('genes_letterhead.jpg');
+                background-size: cover; /* Ensures full page coverage */
+                background-repeat: no-repeat;
+                background-position: top center;
+            }
+            .form-container {
+                padding: 200px 60px 30px 60px; /* Increased top padding to 200px */
+            }
+            .form-group input, .form-group select, .signature-details input {
+                border-bottom: 1px solid #333;
+            }
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <div class="section">
+            <h2>Investigations (continued)</h2>
+            
+            <div class="form-group sub-item">
+                <label>iv) Differential WBC count</label>
+                <input type="text" id="differential-wbc">
+            </div>
+            <div class="form-group sub-item">
+                <label>v) Platelet count</label>
+                <input type="text" id="platelet-count">
+            </div>
+            <div class="form-group sub-item">
+                <label>vi) Peripheral smear</label>
+                <input type="text" id="peripheral-smear">
+            </div>
+            
+            <div class="form-group">
+                <label>23. Random blood sugar</label>
+                <input type="text" id="blood-sugar">
+            </div>
+            <div class="form-group">
+                <label>24. Blood urea / Serum creatinine</label>
+                <input type="text" id="urea-creatinine">
+            </div>
+            <div class="form-group">
+                <label>25. SGPT</label>
+                <input type="text" id="sgpt">
+            </div>
+            <div class="form-group">
+                <label>26. Routine urine examination</label>
+                <input type="text" id="urine-exam">
+            </div>
+            <div class="form-group">
+                <label>27. HBsAg status</label>
+                <select id="hbsag">
+                    <option value=""></option>
+                    <option value="positive">Positive</option>
+                    <option value="negative">Negative</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>28. Hepatitis C status</label>
+                <select id="hepatitis-c">
+                    <option value=""></option>
+                    <option value="positive">Positive</option>
+                    <option value="negative">Negative</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>29. HIV (1) status with date of the tests done</label>
+                <div id="hiv1-container">
+                    <select id="hiv1">
+                        <option value=""></option>
+                        <option value="positive">Positive</option>
+                        <option value="negative">Negative</option>
+                    </select>
+                    <span>Date:</span>
+                    <input type="date" id="hiv1-date">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>30. Hemoglobin A2 (for thallasemia) status</label>
+                <input type="text" id="hemoglobin-a2">
+            </div>
+            <div class="form-group">
+                <label>31. HIV PCR (2) (positive or negative)</label>
+                <select id="hiv-pcr">
+                    <option value=""></option>
+                    <option value="positive">Positive</option>
+                    <option value="negative">Negative</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>32. Sexually transmitted diseases</label>
+                <input type="text" id="std">
+            </div>
+            <div class="form-group">
+                <label>33. Any other specific test (3)</label>
+                <input type="text" id="other-tests">
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Features</h2>
+            <div class="form-group">
+                <label>34. Height (cm)</label>
+                <input type="number" id="height">
+            </div>
+            <div class="form-group">
+                <label>35. Weight (kg)</label>
+                <input type="number" id="weight">
+            </div>
+            <div class="form-group">
+                <label>36. Colour of skin</label>
+                <input type="text" id="skin-color">
+            </div>
+            <div class="form-group">
+                <label>37. Colour of hair</label>
+                <input type="text" id="hair-color">
+            </div>
+            <div class="form-group">
+                <label>38. Colour of eyes</label>
+                <input type="text" id="eye-color">
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Detailed Physical Examination</h2>
+            <div class="form-group">
+                <label>39. Pulse (bpm)</label>
+                <input type="number" id="pulse">
+            </div>
+            <div class="form-group">
+                <label>40. Blood pressure (mmHg)</label>
+                <input type="text" id="blood-pressure" placeholder="e.g., 120/80">
+            </div>
+            <div class="form-group">
+                <label>41. Temperature (°F)</label>
+                <input type="number" id="temperature" step="0.1">
+            </div>
+            <div class="form-group">
+                <label>42. Respiratory system</label>
+                <input type="text" id="respiratory">
+            </div>
+            <div class="form-group">
+                <label>43. Cardiovascular system</label>
+                <input type="text" id="cardiovascular">
+            </div>
+            <div class="form-group">
+                <label>44. Per abdominal examination</label>
+                <input type="text" id="abdominal">
+            </div>
+            <div class="form-group">
+                <label>45. Other systems</label>
+                <input type="text" id="other-systems">
+            </div>
+        </div>
+        
+        <div class="footnotes">
+            <p><strong>Footnotes</strong></p>
+            <p>1. To be carried out every 6 months</p>
+            <p>2. To be carried out if donor leaves within 6 months of the previous HIV test</p>
+            <p>3. Any additional test carried out on the basis of the history and examination of donor</p>
+            <p style="margin-top: 10px;">All the tests should have been done within 15 days prior to the date of filling the form.</p>
+        </div>
+        
+        <div class="signature-section">
+            <p>Name and signature with date, of the person filling the form</p>
+            <div class="signature-line"></div>
+            <div class="signature-details">
+                <span>Name</span>
+                <span>Signature</span>
+                <span>Date: <input type="date" id="signature-date"></span>
+            </div>
+        </div>
+    </div> 
+    <div class="print-button-container no-print">
+        <button class="print-button" onclick="window.print()">🖨️ Print Form (Part 2)</button>
+    </div>
+
+</body>
+</html>

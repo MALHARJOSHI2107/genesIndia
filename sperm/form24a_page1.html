@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM 24 A - Information on Semen Donor</title>
+    <style>
+        /* General Body & Font Styles */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff; /* Fallback color */
+        }
+
+        .form-container {
+            padding: 20px 40px;
+        }
+
+        /* --- HEADING STYLES --- */
+        h1 {
+            text-align: center;
+            font-size: 15px;
+            margin: 0 0 15px 0;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-size: 13px;
+            margin: 12px 0 6px 0;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* --- FORM ELEMENT STYLES (Ultra-Compact) --- */
+        .section {
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 3px; /* Minimal margin */
+            font-size: 11px;  /* Smaller font for fitting */
+            line-height: 1.3;  /* Tighter line spacing */
+        }
+
+        .form-group label {
+            width: 320px;
+            min-width: 320px;
+            margin-right: 10px;
+            font-weight: normal;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="number"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select {
+            flex: 1;
+            padding: 1px 3px;
+            border: none;
+            border-bottom: 1px dotted #555;
+            font-size: 11px;
+            background-color: transparent;
+        }
+        
+        .sub-item {
+            margin-left: 20px;
+        }
+        
+        .sub-item label {
+            width: 300px;
+            min-width: 300px;
+        }
+
+        /* --- STYLES FOR THE NEW PRINT BUTTON (SCREEN ONLY) --- */
+        .print-button-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .print-button {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: all 0.2s ease-in-out;
+        }
+        .print-button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+
+
+        /* --- PRINT-SPECIFIC STYLES --- */
+        @media print {
+            /* This is the crucial rule to hide elements during printing */
+            .no-print {
+                display: none !important;
+            }
+
+            /* Ensure letterhead background image is printed */
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                background-image: url('genes_letterhead.jpg');
+                background-size: cover; /* THIS IS THE KEY CHANGE: Ensures full page coverage without distortion */
+                background-repeat: no-repeat;
+                background-position: top center;
+            }
+            
+            /* Define the printable area on the letterhead */
+            .form-container {
+                padding: 200px 60px 30px 60px; /* Increased top padding to 200px */
+            }
+
+            /* Use solid underlines for a cleaner printed look */
+            .form-group input, .form-group select {
+                border-bottom: 1px solid #333;
+            }
+
+            /* Standard A4 page settings */
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>FORM 24 A<br>Information on Semen Donor</h1>
+    
+        <div class="form-group">
+            <label>Date of filling the form:</label>
+            <input type="date" id="form-date">
+        </div>
+        
+        <div class="section">
+            <h2>Basic Information</h2>
+            
+            <div class="form-group">
+                <label>1. Identification number (Donor ID)</label>
+                <input type="text" id="donor-id">
+            </div>
+            <div class="form-group">
+                <label>2. Age / Date of birth</label>
+                <input type="date" id="dob">
+            </div>
+            <div class="form-group">
+                <label>3. Adhar No.</label>
+                <input type="text" id="aadhar">
+            </div>
+            <div class="form-group">
+                <label>4. Place of birth:</label>
+                <input type="text" id="birth-place">
+            </div>
+            <div class="form-group">
+                <label>5. Marital status</label>
+                <select id="marital-status">
+                    <option value=""></option>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widowed">Widowed</option>
+                </select>
+            </div>
+            <div class="form-group sub-item">
+                <label>6. Education: i) Donor</label>
+                <input type="text" id="donor-education">
+            </div>
+            <div class="form-group sub-item">
+                <label>ii) Spouse</label>
+                <input type="text" id="spouse-education">
+            </div>
+            <div class="form-group sub-item">
+                <label>7. Occupation: i) Donor</label>
+                <input type="text" id="donor-occupation">
+            </div>
+            <div class="form-group sub-item">
+                <label>ii) Spouse</label>
+                <input type="text" id="spouse-occupation">
+            </div>
+            <div class="form-group">
+                <label>8. Monthly income</label>
+                <input type="text" id="income">
+            </div>
+            <div class="form-group">
+                <label>9. Religion</label>
+                <input type="text" id="religion">
+            </div>
+            <div class="form-group">
+                <label>10. Address</label>
+                <input type="text" id="address">
+            </div>
+            <div class="form-group">
+                <label>11. Telephone</label>
+                <input type="tel" id="telephone">
+            </div>
+            <div class="form-group">
+                <label>12. Email</label>
+                <input type="email" id="email">
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>History</h2>
+            
+            <div class="form-group sub-item">
+                <label>13. Obstetric history of wife: i) Number of deliveries</label>
+                <input type="number" id="deliveries">
+            </div>
+            <div class="form-group sub-item">
+                <label>ii) Number of abortions</label>
+                <input type="number" id="abortions">
+            </div>
+            <div class="form-group sub-item">
+                <label>iii) Other points of note</label>
+                <input type="text" id="obstetric-notes">
+            </div>
+            <div class="form-group">
+                <label>14. History of use of contraceptives</label>
+                <input type="text" id="contraceptives">
+            </div>
+            <div class="form-group">
+                <label>15. Medical history</label>
+                <input type="text" id="medical-history">
+            </div>
+            <div class="form-group">
+                <label>16. Family history from the medical point of view</label>
+                <input type="text" id="family-history">
+            </div>
+            <div class="form-group">
+                <label>17. History of any abnormality in a child of the donor</label>
+                <input type="text" id="child-abnormality">
+            </div>
+            <div class="form-group">
+                <label>18. History of blood transfusion</label>
+                <input type="text" id="blood-transfusion">
+            </div>
+            <div class="form-group">
+                <label>19. History of substance abuse</label>
+                <input type="text" id="substance-abuse">
+            </div>
+            <div class="form-group">
+                <label>20. History of any Genetic abnormality</label>
+                <input type="text" id="genetic-abnormality">
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Investigations</h2>
+            
+            <div class="form-group">
+                <label>21. Blood group and Rh status</label>
+                <input type="text"id="blood-group">
+            </div>
+            <div class="form-group sub-item">
+                <label>22. Complete blood picture: i) Hb</label>
+                <input type="text" id="hb">
+            </div>
+            <div class="form-group sub-item">
+                <label>ii) Total RBC count</label>
+                <input type="text" id="rbc">
+            </div>
+            <div class="form-group sub-item">
+                <label>iii) Total WBC count</label>
+                <input type="text" id="wbc">
+            </div>
+        </div>
+    </div> 
+    
+    <div class="print-button-container no-print">
+        <button class="print-button" onclick="window.print()">🖨️ Print Form</button>
+    </div>
+
+</body>
+</html>
