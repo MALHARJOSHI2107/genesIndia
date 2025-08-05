@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -368,4 +368,326 @@
     });
   </script>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GENES India | Oocyte Donor Entry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #f0f4f8, #e0e6ee);
+      color: #334e68;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      color: #0d47a1;
+      font-weight: 700;
+    }
+    form {
+      background: white;
+      border-radius: 15px;
+      padding: 30px 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 700px;
+      border: 1px solid #e0e0e0;
+    }
+    .form-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #334e68;
+    }
+    input, select {
+      padding: 12px 15px;
+      font-size: 1em;
+      border: 1px solid #c9d6e7;
+      border-radius: 8px;
+      background-color: #fcfdff;
+      color: #334e68;
+    }
+    input:focus, select:focus {
+      border-color: #1976d2;
+      box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+      outline: none;
+    }
+    button[type="submit"] {
+      display: block;
+      margin: 30px auto 0;
+      padding: 14px 30px;
+      font-size: 1.1em;
+      background-color: #0d47a1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #1976d2;
+      transform: translateY(-2px);
+    }
+    .alert {
+      background: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+  </style>
+  <script src="../../auth.js"></script>
+</head>
+<body>
+  <h1>Oocyte Donor Entry Form</h1>
+
+  <div id="aadhaarAlert" class="alert" style="display: none;"></div>
+
+  <form id="oocyteDonorForm">
+    <div class="form-group">
+      <label for="aadhaar">Aadhaar <span style="color: red">*</span></label>
+      <input type="text" id="aadhaar" name="aadhaar" pattern="[0-9]{12}" title="12 digit Aadhaar" required />
+    </div>
+
+    <div class="form-group">
+      <label for="donor_code">Donor Code *</label>
+      <input type="text" id="donor_code" name="donor_code" required>
+    </div>
+
+    <div class="form-group">
+      <label for="registration_code">Registration Code</label>
+      <input type="text" id="registration_code" name="registration_code">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Donor Name *</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="husbands_name">Husband's Name</label>
+      <input type="text" id="husbands_name" name="husbands_name">
+    </div>
+
+    <div class="form-group">
+      <label for="mobile">Mobile</label>
+      <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" title="10 digit Mobile">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address">
+    </div>
+
+    <div class="form-group">
+      <label for="marital_status">Marital Status</label>
+      <select id="marital_status" name="marital_status">
+        <option value="">Select</option>
+        <option value="Single">Single</option>
+        <option value="Married">Married</option>
+        <option value="Divorced">Divorced</option>
+        <option value="Widowed">Widowed</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="18" max="45">
+    </div>
+
+    <div class="form-group">
+      <label for="visit_1_date">Visit 1 Date</label>
+      <input type="date" id="visit_1_date" name="visit_1_date">
+    </div>
+
+    <div class="form-group">
+      <label for="investigations">Investigations</label>
+      <input type="text" id="investigations" name="investigations">
+    </div>
+
+    <div class="form-group">
+      <label for="declaration">Declaration</label>
+      <input type="text" id="declaration" name="declaration">
+    </div>
+
+    <div class="form-group">
+      <label for="file_status">File Status</label>
+      <input type="text" id="file_status" name="file_status">
+    </div>
+
+    <div class="form-group">
+      <label for="ovum_pickup_date">Ovum Pickup Date</label>
+      <input type="date" id="ovum_pickup_date" name="ovum_pickup_date">
+    </div>
+
+    <div class="form-group">
+      <label for="doctor_name">Doctor's Name</label>
+      <input type="text" id="doctor_name" name="doctor_name">
+    </div>
+
+    <div class="form-group">
+      <label for="hospital_name">Hospital Name</label>
+      <input type="text" id="hospital_name" name="hospital_name">
+    </div>
+
+    <div class="form-group">
+      <label for="couple_name">Couple Name</label>
+      <input type="text" id="couple_name" name="couple_name">
+    </div>
+
+    <div class="form-group">
+      <label for="document_status">Document Status</label>
+      <input type="text" id="document_status" name="document_status">
+    </div>
+
+    <div class="form-group">
+      <label for="habit_gutka">Gutka Consumption?</label>
+      <select id="habit_gutka" name="habit_gutka">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="habit_smoking">Smoking?</label>
+      <select id="habit_smoking" name="habit_smoking">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="habit_liquor">Liquor Consumption?</label>
+      <select id="habit_liquor" name="habit_liquor">
+        <option value="false">No</option>
+        <option value="true">Yes</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="height">Height</label>
+      <input type="text" id="height" name="height">
+    </div>
+
+    <div class="form-group">
+      <label for="weight">Weight</label>
+      <input type="number" id="weight" name="weight">
+    </div>
+
+    <div class="form-group">
+      <label for="blood_group">Blood Group</label>
+      <input type="text" id="blood_group" name="blood_group">
+    </div>
+
+    <div class="form-group">
+      <label for="hair_color">Hair Color</label>
+      <input type="text" id="hair_color" name="hair_color">
+    </div>
+
+    <div class="form-group">
+      <label for="eye_color">Eye Color</label>
+      <input type="text" id="eye_color" name="eye_color">
+    </div>
+
+    <div class="form-group">
+      <label for="education">Education</label>
+      <input type="text" id="education" name="education">
+    </div>
+
+    <div class="form-group">
+      <label for="no_of_children">Number of Children</label>
+      <input type="number" id="no_of_children" name="no_of_children">
+    </div>
+
+    <div class="form-group">
+      <label for="profession">Profession</label>
+      <input type="text" id="profession" name="profession">
+    </div>
+
+    <button type="submit">Submit Oocyte Donor Data</button>
+  </form>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+
+    const supabase = createClient(
+      'https://mtzrqriuplctlnpcmnlp.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im10enJxcml1cGxjdGxucGNtbmxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0MzkyODAsImV4cCI6MjA2NzAxNTI4MH0.wEMz-7QI54NnEa74f0uvJD8oWjH-EhokqePAXbkBO5M'
+    );
+
+    const form = document.getElementById('oocyteDonorForm');
+    const aadhaarInput = document.getElementById('aadhaar');
+    const alertBox = document.getElementById('aadhaarAlert');
+
+    aadhaarInput.addEventListener('input', async () => {
+      const aadhaar = aadhaarInput.value;
+      if (aadhaar.length === 12) {
+        const { data, error } = await supabase.from('oocyte_donors').select('id').eq('aadhaar', aadhaar);
+        if (data && data.length > 0) {
+          alertBox.textContent = '⚠️ A donor with this Aadhaar already exists! Proceed only if you want to allow duplicates.';
+          alertBox.style.display = 'block';
+        } else {
+          alertBox.style.display = 'none';
+        }
+      } else {
+        alertBox.style.display = 'none';
+      }
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      data.habit_gutka = data.habit_gutka === 'true';
+      data.habit_smoking = data.habit_smoking === 'true';
+      data.habit_liquor = data.habit_liquor === 'true';
+      if (data.no_of_children) data.no_of_children = Number(data.no_of_children);
+      if (data.age) data.age = Number(data.age);
+      if (data.weight) data.weight = Number(data.weight);
+
+      const { error } = await supabase.from('oocyte_donors').insert([data]);
+
+      if (error) {
+        alert('Error saving data: ' + error.message);
+        console.error(error);
+      } else {
+        alert('Oocyte Donor data saved successfully!');
+        form.reset();
+        alertBox.style.display = 'none';
+      }
+    });
+
+    // Navigate fields using down arrow key
+    form.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const inputs = Array.from(form.querySelectorAll('input, select'));
+        const index = inputs.indexOf(document.activeElement);
+        if (index > -1 && index < inputs.length - 1) {
+          inputs[index + 1].focus();
+        }
+      }
+    });
+  </script>
+</body>
 </html>
+

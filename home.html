@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -102,6 +102,121 @@
             body.classList.remove('dark');
             localStorage.removeItem('darkMode');
         }
+    });
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GENES India | Donor System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="assets/papa.jpg" alt="Genes India Logo" class="logo" />
+      <h1>GENES India Donor Management System</h1>
+      <div class="dark-toggle">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider"></span>
+        </label>
+        <span>Dark Mode</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2 class="section-title" onclick="toggleSection(this)">
+        <span class="icon">🖨️</span> Print Donor Forms
+      </h2>
+      <ul class="section-list">
+        <li>
+          <h3 class="subsection-title" onclick="toggleSection(this)">Sperm Donor Forms</h3>
+          <ul class="subsection-list">
+            <li><a href="sperm/form22.html" target="_blank">Sperm Donor Form - FORM 22 / FORM 13</a></li>
+            <li><a href="sperm/form24a_page1.html" target="_blank">Sperm Donor Form - FORM 24A (Page 1)</a></li>
+            <li><a href="sperm/form24a_page2.html" target="_blank">Sperm Donor Form - FORM 24A (Page 2)</a></li>
+          </ul>
+        </li>
+        <li>
+          <h3 class="subsection-title" onclick="toggleSection(this)">Oocyte Donor Forms</h3>
+          <ul class="subsection-list">
+            <li><a href="oocyte/form1.html" target="_blank">Oocyte Donor Form - FORM M1 (Page 1)</a></li>
+            <li><a href="oocyte/form2.html" target="_blank">Oocyte Donor Form - FORM 13</a></li>
+            <li><a href="oocyte/form3.html" target="_blank">Oocyte Donor Form - FORM M1 (Page 2/3)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title" onclick="toggleSection(this)">
+        <span class="icon">🧬</span> Add Donor to Database
+      </h2>
+      <ul class="section-list">
+        <li><a href="./sperm/entries/sperm_donor_entry.html" target="_blank">Insert Sperm Donor Info</a></li>
+        <li><a href="./oocyte/entries/oocyte_donor_entry.html" target="_blank">Insert Oocyte Donor Info</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2 class="section-title" onclick="toggleSection(this)">
+        <span class="icon">📄</span> View Donor Entries
+      </h2>
+      <ul class="section-list">
+        <li><a href="./view/view_donors.html" target="_blank">View All Donor Entries (Search/Edit/Delete)</a></li>
+      </ul>
+    </div>
+
+    <button onclick="logout()" class="logout-button">Logout</button>
+  </main>
+
+  <footer>
+    <p>© 2025 GENES India Pvt. Ltd. | Assisted Reproductive Technology (ART) Bank</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script>
+    // Check login
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "index.html"; // Go back to login
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      window.location.href = "index.html";
+    }
+
+    function toggleSection(element) {
+      const list = element.nextElementSibling;
+      if (list && (list.classList.contains('section-list') || list.classList.contains('subsection-list'))) {
+        list.style.display = list.style.display === "none" ? "block" : "none";
+      }
+    }
+
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark');
+      darkModeToggle.checked = true;
+    }
+
+    darkModeToggle.addEventListener('change', () => {
+      if (darkModeToggle.checked) {
+        body.classList.add('dark');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        body.classList.remove('dark');
+        localStorage.removeItem('darkMode');
+      }
     });
   </script>
 </body>
